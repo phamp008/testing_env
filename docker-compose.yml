@@ -1,0 +1,20 @@
+version: "3"
+services:
+
+  ansible_controller:
+    image: sshd_with_ansible
+    hostname: controller
+    container_name: controller
+    domainname: mydomain.com
+    networks:
+      - bridge_net
+  node1:
+    image: sshd_only
+    hostname: node1
+    container_name: node1
+    domainname: mydomain.com
+    networks:
+      - bridge_net
+networks:
+  bridge_net:
+    driver: bridge
